@@ -1,0 +1,31 @@
+/// This file contains messages that support pnr management workflows
+syntax = "proto3";
+
+package amapnr;
+message Date
+{
+  int32 year = 1;
+  int32 month = 2;
+  int32 day = 3;
+}
+
+message Passenger
+{
+  string surname = 1;
+  string firstname = 2;
+  Date dateofbirth = 3;
+}
+
+message PNR
+{
+  message Rloc
+  {
+    string rloc = 1;
+  }
+
+  Rloc rloc = 1;
+  string flightNum = 2;
+  Date departureDate = 3;
+  Date arrivalDate = 4;
+  Passenger pax = 5;
+}
